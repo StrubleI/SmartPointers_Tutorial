@@ -110,3 +110,23 @@ int main() {
 > [!TIP]
 > Use raw pointers only for non-owning references, like function parameters.
 
+## 🌟 Key Differences
+
+| Feature             | `std::unique_ptr` | `std::shared_ptr` | `std::weak_ptr` |
+|---------------------|-------------------|-------------------|-----------------|
+| **Ownership**       | Exclusive         | Shared            | Non-owning      |
+| **Copyable**        | ❌ No             | ✅ Yes            | ✅ Yes          |
+| **Reference Counting** | ❌ No          | ✅ Yes            | ❌ No           |
+| **Overhead**        | Minimal           | Moderate          | Minimal         |
+
+### 🎉 Output Examples
+
+Running the code above will produce:
+
+```cpp
+Entity Created
+Hello from Entity
+Entity Destroyed
+```
+
+# Happy coding! 🚀
