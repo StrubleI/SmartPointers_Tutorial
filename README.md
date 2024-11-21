@@ -107,3 +107,6 @@ int main() {
 - Avoid cyclic references when using `std::shared_ptr`. Use `std::weak_ptr` for breaking cycles.
 - Use `std::make_unique` and `std::make_shared` to create smart pointers for exception safety.
 
+> [!TIP]
+> Use raw pointers only for non-owning references, like function parameters.
+
