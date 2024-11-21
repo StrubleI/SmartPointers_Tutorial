@@ -15,7 +15,8 @@ Smart pointers are an essential feature introduced in C++11 to handle memory man
 - **Exception Safety**: Reduce the risk of memory leaks, especially in complex programs.
 - **Ownership Semantics**: Clearly define which part of your program owns a given resource.
 
-> **⚠️ Important**: Avoid raw pointers (`new` and `delete`) in modern C++! Use smart pointers whenever possible.
+> [!IMPORTANT]
+> Avoid raw pointers (`new` and `delete`) in modern C++! Use smart pointers whenever possible.
 
 ---
 
