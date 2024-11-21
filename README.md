@@ -43,3 +43,61 @@ int main() {
     uniqueEntity->Print(); // Access the object
     return 0; // unique_ptr automatically deletes the object
 }
+```
+
+### 2️⃣ `std::shared_ptr`
+- Shared ownership: multiple `shared_ptr` instances can share ownership of the same resource.
+- Uses a control block to manage reference counting.
+- When the last shared_ptr goes out of scope, the resource is **deleted**.
+  
+**Example:**
+```cpp
+#include <memory>
+#include <iostream>
+
+class Entity {
+public:
+    Entity() { std::cout << "Entity Created\n"; }
+    ~Entity() { std::cout << "Entity Destroyed\n"; }
+};
+
+int main() {
+    auto sharedEntity = std::make_shared<Entity>();
+    auto anotherShared = sharedEntity; // Reference count increases
+
+    // Both pointers manage the same object
+    std::cout << "Reference Count: " << sharedEntity.use_count() << std::endl;
+
+    return 0; // Object is destroyed when the last shared_ptr goes out of scope
+}
+```
+### 3️⃣ std::weak_ptr
+- A non-owning reference to a `std::shared_ptr` resource.
+- Does not affect the reference count.
+- Useful for avoiding cyclic dependencies in complex ownership hierarchies.
+
+**Example:**
+```cpp
+#include <memory>
+#include <iostream>
+
+class Entity {
+public:
+    Entity() { std::cout << "Entity Created\n"; }
+    ~Entity() { std::cout << "Entity Destroyed\n"; }
+};
+
+int main() {
+    std::shared_ptr<Entity> sharedEntity = std::make_shared<Entity>();
+    std::weak_ptr<Entity> weakEntity = sharedEntity; // Weak reference
+
+    if (auto lockedEntity = weakEntity.lock()) {
+        std::cout << "Entity is alive\n";
+    } else {
+        std::cout << "Entity is destroyed\n";
+    }
+
+    return 0;
+}
+```
+
