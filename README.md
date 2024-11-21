@@ -101,3 +101,9 @@ int main() {
 }
 ```
 
+
+## 🔑 Best Practices
+- Prefer `std::unique_ptr` unless shared ownership is required.
+- Avoid cyclic references when using `std::shared_ptr`. Use `std::weak_ptr` for breaking cycles.
+- Use `std::make_unique` and `std::make_shared` to create smart pointers for exception safety.
+
