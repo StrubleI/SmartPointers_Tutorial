@@ -101,7 +101,7 @@ int main() {
     return 0;
 }
 ```
-
+---
 
 ## 🔑 Best Practices
 - Prefer `std::unique_ptr` unless shared ownership is required.
